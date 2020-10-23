@@ -11,7 +11,7 @@ class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def load(self, ctx, *, module : str):
         """Loads a module"""
@@ -24,7 +24,7 @@ class Admin(commands.Cog):
             await ctx.send(embed=embeds.create_success("Success", "Successfully loaded extension"))
 
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def unload(self, ctx, *, module : str):
         """Unloads a module"""
@@ -37,7 +37,7 @@ class Admin(commands.Cog):
             await ctx.send(embed=embeds.create_success("Success", "Successfully unloaded extension"))
 
 
-    @commands.command(name='reload')
+    @commands.command(name='reload', hidden=True)
     @commands.is_owner()
     async def _reload(self, ctx, *, module : str):
         """Reloads a module"""
